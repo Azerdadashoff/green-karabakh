@@ -1,0 +1,745 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+
+body {
+	margin: 0;
+	background-color: #CEF5CE;
+  box-sizing: border-box;
+	font-family: 'robota-flex', 'noto sans moro'; 
+	font-weight: 800;
+}
+
+/* navbar */
+header {
+  background-color: transparent;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  position: fixed;
+  width: 100%; /* Full width verir */
+  z-index: 1000; 
+  top: 0px;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.header-hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.logo-container {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-grow: 1;
+}
+
+
+
+/* Navigation styles */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding-right: 30px;
+  margin-right: 20px;
+
+}
+
+.nav-links li {
+  margin-left: 20px;
+  position: relative;
+
+}
+
+.nav-links a {
+  font-family: 'Work Sans', sans-serif;
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: color 0.3s;
+  font-weight: normal;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+  color: white
+}
+
+.nav-links a::before {
+  
+  content: '';
+  display: block;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  transition: width 250ms ease-in-out;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+/* Hamburger Menu */
+.menu-icon {
+  display: none;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 50px;
+  margin-top: 15px;
+  color: white; 
+}
+
+
+
+
+
+  @media (max-width: 768px) {
+    /* Navbar mobilde sola hizalanmış */
+    header {
+      justify-content: space-between;
+    }
+  
+    /* Logo və hamburger ikonunun hizalanması */
+    .logo-container {
+      flex-grow: 0;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+  
+    .menu-icon {
+      display: block;
+      order: 1;
+      
+    }
+  
+    .nav-links {
+      display: none; /* Başlanğıcda gizli */
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.9); /* Menyu açıldığında arxa plan rəngi */
+      position: fixed;
+      top: 0;
+      left: -100%; /* Sol tərəfdən çıxması üçün gizli vəziyyət */
+      width: 100%;
+      height: 100%;
+      padding-top: 100px;
+      transition: left 0.4s ease;
+      z-index: 999;
+      overflow-x: hidden;
+      text-align: center;
+    }
+  img{
+    height: 60px;
+    width: 260px;
+  }
+    .nav-open {
+      left: 0; /* Açıldığında menyunun sol tərəfdən görünməsi */
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 20px 0;
+    }
+  
+    /* Hamburger menyu ikonunun hizalanması */
+    .menu-icon {
+      order: 0;
+      padding: 25px;
+      position: relative;
+      z-index: 1000;
+      height: 80px;
+      width: 50px;
+      margin-top: 40px;
+    }
+    
+    /* Açıldığında sağdan çıxan nav-linklərin effekti */
+    .nav-links a {
+      font-size: 20px;
+      padding: 20px;
+      color: white;
+      text-align: left;
+      transition: background-color 0.3s ease;
+    }
+  
+    .nav-links a:hover {
+      background-color: #333;
+    }
+  
+    /* Foto və textlər üçün responsive düzen */
+    .container {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    .text-container {
+      max-width: 100%;
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
+  
+    .image-container {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  
+  } 
+
+/* Mobile Menu Open */
+.nav-open {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+/* About  */
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 110px 20px;
+    background: linear-gradient(135deg, #51d26b, #e9f7ef);
+    
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.text-container {
+    max-width: 50%;
+    margin-bottom: 100px ;
+}
+
+h1 {
+    font-size: 2.3rem;
+    color: #000;
+    margin-bottom: 20px;
+    font-family: 'Arial', 'Helvetica', 'sans-serif';
+    letter-spacing: 1px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 40px;
+    font-size: 1.5rem;
+    margin-top: -5px;
+    font-family: 'Arial', 'Helvetica', 'sans-serif';
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #555;
+}
+
+.registration-date {
+    font-size: 1.2rem;
+    color: #000;
+    margin-top: 10px;
+    font-family: 'Arial', 'Helvetica', 'sans-serif';
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+}
+
+.card {
+    max-width: 80%;
+    width: 300px;
+    height: 400px;
+    background-color: #333;
+    border-radius: 12px;
+    outline: 1px solid rgba(255, 255, 255, 0.5);
+    outline-offset: -8px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s;
+}
+
+.card-image{
+position: absolute;
+inset: 0; 
+width: 100%; 
+height: 100%;
+object-fit: cover;
+transition: transform 0.75s; 
+}
+
+.card:hover .card-image{
+    transform: scale(11.1rem); 
+}
+
+
+/* proqram haqqinda */
+
+.program-section {
+    background-color: #e9f7ef;
+    padding: 60px 0;
+}
+
+.program-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #1B5E20;
+    font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.program-section p {
+    text-align:center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.program-image {
+    margin-top: 70px;
+    padding: 0;
+    max-width: 90%;
+    height: 400px;
+    width: 600px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    outline: none;
+}
+
+#hero{
+  height: 380px;
+  width: 400px;
+  margin-right: 30px;
+}
+
+.program-image:hover {
+  transform: scale(1.05); /* Hover zamanı bir az böyüdür */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Hover zamanı kölgə effekti */
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .program-section .row {
+      display: flex;
+      align-items: center;
+  }
+  .program-section .col-md-6 {
+      flex: 1;
+      padding: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .program-section h2 {
+      font-size: 2rem; /* Kiçik ekranlar üçün başlıq ölçüsünü kiçiltmək */
+  }
+
+  .program-section p {
+      font-size: 1.1rem; /* Kiçik ekranlar üçün mətn ölçüsünü kiçiltmək */
+  }
+
+  .program-image {
+      width: 100%; /* Kiçik ekranlar üçün şəkil tam eni əhatə edir */
+  }
+}
+
+/* muraciet kriteriyalari */
+
+/* Ana bölmə üçün stillər */
+.criteria-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #F0FFF5;; /* Fon rəngi */
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); /* Konteyner kölgəsi */
+  margin: 30px 0;
+}
+
+/* Başlıq üçün stillər */
+.criteria-section h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  color: #1B5E20;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Kartların konteyneri */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.card {
+  background: linear-gradient(135deg, #E8F5E9, #FFFFFF);
+  border-radius: 15px;
+  padding: 20px;
+  height: 300px;
+  width: 280px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+  font-size: 27px;
+  color: #2E7D32;
+  line-height: 1.4;
+}
+
+.card .quote {
+  font-size: 50px;
+  color: #1B5E20;
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  opacity: 0.2;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+}
+
+.card p {
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  color: #388E3C;
+}
+
+.card .quote:hover {
+  color: #4CAF50;
+  transform: scale(1.1);
+}
+
+
+  /* Hakaton basliqlari */
+
+.hakatontopics {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #c3e7c5, #e9f7ef);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hakatontopics h1 {
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #013004, #1B5E20);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.topic {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4caf50;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 3px solid transparent;
+}
+
+.topic:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  background-color: #b2dfdb;
+  border: 3px solid #4caf50;
+  color: #00796b;
+}
+
+.topic::before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(45deg, rgba(255, 87, 34, 0.2), rgba(255, 193, 7, 0.2));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.topic:hover::before {
+  opacity: 1;
+}
+
+
+
+/* FAQ */
+
+.hidden-faq {
+  display: none;
+} 
+
+
+details {
+  width: 75%;
+  max-width: 700px;
+  padding: 20px 30px;
+  margin: 20px auto;
+  position: relative;
+  font-size: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #f9fafc;
+  transition: all 0.3s ease;
+}
+
+details[open] {
+  background-color: #e6f7f5;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+details[open] summary {
+  color: #2e7d32;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.control-icon {
+  fill: #2e7d32;
+  transition: transform 0.3s ease;
+}
+
+details[open] .control-icon {
+  transform: rotate(180deg);
+}
+
+details p {
+  color: #555;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+
+/* Footer */
+
+
+footer {
+  background-color: #04750b;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-content h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.footer-content p {
+  font-size: 16px;
+  margin-top: 16px;
+  font-family: 'robota-flex', 'noto sans moro';
+  line-height: 1.6;
+  color: #f0f0f0;
+  font-weight: normal;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.icon {
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #444;
+  text-decoration: none;
+  width: 30px; 
+  height: 30px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.icon:hover {
+  transform: translateY(-5px);
+  background-color: #00796b;
+}
+
+.whatsapp:hover {
+  background-color: #25D366;
+}
+
+.instagram:hover {
+  background-color: #E1306C;
+}
+
+.facebook:hover {
+  background-color: #3b5998;
+}
+
+/* scroll butonu */
+
+#topBtn {
+  display: none; /* Başlanğıcda gizlədilmişdir */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background-color: #ffffff; /* Yaşıl ton */
+  color: #0b6623;
+  cursor: pointer;
+  padding: 14px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+#topBtn:hover {
+  background-color: #0b6623; /* Hover zamanı rəngin tündləşdirilməsi */
+  color: #FFFFFF;
+}
+
+
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+      font-size: 1em !important;
+      margin-right: 100px !important;
+  }
+
+  .hero-section .cta-button {
+      padding: 8px 15px ;
+      font-size: 20px ;
+      margin-right: 120px ;
+  }
+  .hero-section p{
+    margin-right: 100px;
+  }
+
+
+  .card-image{
+      width: 100% !important; /* Şəkil tam eninə uyğun olsun */
+      height: 400px !important; /* Şəkil nisbətini saxlasın */
+      display: block !important;
+      margin: 0 !important; /* Mərkəzləşdirir */
+      object-fit: contain !important; /* Şəkilin içəriyə uyğunlaşdırılmasını təmin edir */
+      position: relative !important; /* Position absolute'u çıxardıq */
+      transition: transform 0.75s !important;
+  }
+
+  #hero {
+      max-width: 60% !important; 
+      display: block !important;
+      /* justify-content: flex-start !important;  */
+      align-items: flex-start !important;
+      /* height: auto !important;
+      width: auto !important; */
+      padding: 10px !important;
+      /* margin-left: 20px !important; */
+  }
+
+  
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
